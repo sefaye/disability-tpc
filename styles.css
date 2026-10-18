@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Garamond, sans-serif;
+}
+
+h1 { font-size: 3em; }
+
+h2 {
+  font-size: 2.5em;
+  border-top: 4px solid purple;
+  border-radius: 2px;
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+h3 { font-size: 2em; }
+p { font-size: 1.7em; }
+
+strong {
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+/* Main content links only */
+.main-content a {
+  color: purple;
+  text-decoration: none;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.main-content a:hover,
+.main-content a:focus-visible {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1e293b;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar ul { list-style: none; }
+
+.sidebar ul li { margin: 15px 0; }
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.sidebar ul li a:hover {
+  background-color: purple;
+  color: white;
+  text-decoration: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  padding-right: 250px;
+  background-color: white;
+  position: relative;
+}
+
+.main-content a {
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-content h1 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.main-content p {
+  line-height: 1.1;
+  color: black;
+  margin-bottom: 20px;
+  font-size: 1.7em;
+}
+
+.main-content .next-page-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: orange;
+  color: darkblue;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-size: 1.7em;
+}
+
+.main-content .next-page-button:hover {
+  background-color: purple;
+  color: white;
+  font-size: 1.7em;
+}
+
+
+  .back-button {
+      display: inline-block;
+      color: darkblue   ;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: orange;
+      margin-bottom: 30px;
+      transition: background 0.3s;
+      font-size: 1.7em;
+    }
+
+    .back-button:hover {
+      background-color: purple;
+      color: white;
+    }
+
+    
+
+
+@media (max-width: 768px) {
+  .main-content { padding-right: 20px; }
+  body { flex-direction: column; }
+  .sidebar { width: 100%; }
+  .next-page-button {
+    position: static;
+    display: inline-block;
+    margin-top: 20px;
+  }
+}

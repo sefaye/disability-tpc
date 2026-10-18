@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Index</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Garamond, sans-serif;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      border-top: 4px solid purple;
+      border-radius: 2px;
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+
+    h3 {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #1e293b;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid purple;
+    }
+
+    p {
+      font-size: 1.7em;
+      line-height: 1;
+    }
+
+    strong {
+      font-size: 0.6em;
+      font-weight: bold;
+    }
+
+    a {
+      color: purple;
+      text-decoration: none;
+      font-size: 1.7em;
+      font-weight: bold;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: darkblue;
+      text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 3px solid orange;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #1e293b;
+      color: white;
+      padding: 20px;
+      flex-shrink: 0;
+    }
+
+    .back-button {
+      display: inline-block;
+      color: darkblue;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: orange;
+      margin-bottom: 30px;
+      transition: background 0.3s;
+      font-size: 1.7em;
+    }
+
+    .back-button:hover {
+      background-color: purple;
+      color: white;
+    }
+
+    .back-button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 2px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-size: 1.5em;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: purple;
+    }
+
+    .sidebar ul li a:focus-visible {
+      outline: 3px solid orange;
+      outline-offset: 2px;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      background-color: white;
+      position: relative;
+    }
+
+    .main-content h1 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .main-content > p {
+      color: #444;
+      margin-bottom: 40px;
+      font-size: 1.4em;
+      line-height: 1.5;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background-color: #3b0764;
+      border: 2px solid #7e22ce;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      color: white;
+      border-bottom-color: orange;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .card ul li {
+      margin: 10px 0;
+    }
+
+    .card ul li a {
+      font-size: 1.3em;
+      font-weight: normal;
+      color: white;
+      display: block;
+      padding: 4px 0;
+      border-radius: 2px;
+    }
+
+    .card ul li a:hover,
+    .card ul li a:focus-visible {
+      color: #d8b4fe;
+      text-decoration: underline;
+    }
+
+    .card ul li a:focus-visible {
+      outline: 3px solid orange;
+      outline-offset: 2px;
+    }
+
+    /* Bottom Right Button */
+    .next-page-button {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background-color: orange;
+      color: darkblue;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-size: 1.7em;
+    }
+
+    .next-page-button:hover {
+      background-color: purple;
+      color: white;
+    }
+
+    .next-page-button:focus-visible {
+      outline: 3px solid #111;
+      outline-offset: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .main-content {
+        padding: 24px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .next-page-button {
+        position: static;
+        display: inline-block;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Site navigation">
+
+    <a href="#" class="back-button" onclick="history.back(); return false;">Go Back ←</a>
+
+    <nav aria-label="Pages">
+      <ul>
+      <li><a href="index.html">How the Project Started</a></li>
+      <li><a href="faye_disability_ieee-1985.html">IEEE 1985</a></li>
+      <li><a href="faye_disability_tc-2006.html">TC 2006</a></li>
+      <li><a href="faye_disability_bpcq-2018.html">BPCQ 2018</a></li>
+      <li><a href="faye_disability_cdq-2018.html">CDQ 2018</a></li>
+      <li><a href="faye_disability_ieee-2021.html">IEEE 2021</a></li>
+      <li><a href="faye_disability_now-what.html">Now What?</a></li>
+      <li><a href="faye_disability_references.html">References</a></li>
+      <li><a href="faye_disability_list-of-articles-on-disability.html">List of Articles on Disability</a></li>
+      <li><a href="faye_disability_the-index.html">The Index</a></li>
+    </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>The Index</h1>
+    <h2>Choose your own (non-linear) adventure!</h2>
+
+    <p>Here are all pages on this site grouped by category.</p>
+
+    <div class="card-grid" aria-label="Topical index of site pages">
+
+      <!-- Category 1 -->
+      <section class="card" aria-labelledby="cat-context">
+        <h3 id="cat-context">Full Chronology</h3>
+        <ul>
+          <li><a href="faye_disability_ieee-1985.html">IEEE 1985</a></li>
+          <li><a href="faye_disability_1990–2005.html">1990-2005</a></li>
+          <li><a href="faye_disability_tc-2006.html">TC 2006</a></li>
+          <li><a href="faye_disability_2006–2018.html">2006-2018</a></li>
+          <li><a href="faye_disability_bpcq-2018.html">BPCQ 2018</a></li>
+          <li><a href="faye_disability_cdq-2018.html">CDQ 2018</a></li>
+          <li><a href="faye_disability_2018-2021.html">2018-2021</a></li>
+          <li><a href="faye_disability_ieee-2021.html">IEEE 2021</a></li>
+          <li><a href="faye_disability_between-the-special-issues-and-2021.html">Between the special issues and 2021</a></li>
+
+        </ul>
+      </section>
+
+      <!-- Category 2 -->
+      <section class="card" aria-labelledby="cat-standards">
+        <h3 id="">Analyses</h3>
+        <ul>
+          <li><a href="faye_disability_no-real-handicap-to-me.html">No real handicap to me</a></li>
+          <li><a href="faye_disability_the-aging-body-in-tpc.html">The aging body in TPC</a></li>
+          <li><a href="faye_disability_the-limit-of-editorial-power.html">The limit of editorial power</a></li>
+          <li><a href="faye_disability_recurring-themes.html">Recurring themes</a></li>
+
+        </ul>
+      </section>
+
+      <!-- Category 3 -->
+      <section class="card" aria-labelledby="cat-research">
+        <h3 id="cat-research">Lists of Articles</h3>
+        <ul>
+          <li><a href="faye_disability_list-of-articles-on-disability.html">Alphabetical list of articles on disability</a></li>
+          <li><a href="faye_disability_chronological-list-of-disability-articles.html">Chronological list of disability articles</a></li>
+          <li><a href="faye_disability_disability-articles-organized-by-journal.html">Disability articles organized by journal</a></li>
+          <li><a href="faye_disability_articles-on-older-adults.html">Articles on older adults</a></li>
+          <li><a href="faye_disability_references.html">References</a></li>
+        </ul>
+      </section>
+
+      <!-- Category 4 — replace placeholder links with your actual 10 items -->
+      <section class="card" aria-labelledby="cat-articles">
+        <h3 id="cat-articles">Thinking Process</h3>
+        <ul>
+          <li><a href="index.html">How the project started</a></li>
+          <li><a href="faye_disability_word-choices.html">Word choices</a></li>
+          <li><a href="faye_disability_kairos-special-issue.html">Kairos special issue</a></li>
+          <li><a href="faye_disability_methods-and-methodologies.html">Methods and methodologies</a></li>
+          <li><a href="faye_disability_models-of-disability.html">Models of disability</a></li>
+          <li><a href="faye_disability_now-what.html">Now what?</a></li>
+        </ul>
+      </section>
+
+    </div>
+
+    
+  </main>
+
+</body>
+</html>
